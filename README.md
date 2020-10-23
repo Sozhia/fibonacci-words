@@ -13,7 +13,7 @@ In Fibonacci word,
   F7 = "abbabbababbab".
    ..... 
 ```
-where S(n) = S(n-1) + S(n-2) and + represents the concatenation of strings.\n
+where F(n) = F(n-2) + F(n-1) and + represents the concatenation of strings.\n
 Use example: 
 ```bash
 $> ./fibonacci_words input.txt output.txt
