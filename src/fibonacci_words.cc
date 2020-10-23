@@ -98,10 +98,10 @@ void PrintHelp() {
 	addition."
 	<< std::endl;
 	std::cout << "F1 = a
-	, F2 = b
-	, F3 = ab
-	, F4 = bab
-	, F5 = abbab "<< std::endl;
+	,F2 = b
+	,F3 = ab
+	,F4 = bab
+	,F5 = abbab "<< std::endl;
 	std::cout << "Use example: $> ./fibonacci_words input.txt output.txt" << std::endl;
 }
 
