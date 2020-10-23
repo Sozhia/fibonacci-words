@@ -1,5 +1,5 @@
 # Fibonacci words on C++
-Like Fibonacci numbers, a Fibonacci word. is a specific sequence of binary digits (or symbols from any two-letter alphabet). The Fibonacci word is formed by repeated concatenation in the same way that the Fibonacci numbers are formed by repeated addition. But unlike the fibonacci number, Fibonacci word has its first two terms different from each other.
+Fibonacci word is a specific sequence of binary digits (or symbols from any two-letter alphabet). The Fibonacci word is formed by repeated concatenation in the same way that the Fibonacci numbers are formed by repeated addition. But unlike the fibonacci number, Fibonacci word has its first two terms different from each other.
 
 ```
 In Fibonacci word,
