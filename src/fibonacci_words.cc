@@ -23,9 +23,8 @@ class FibonacciWord{
 	~FibonacciWord();
   void SetWord(std::string word);
   void SetSize(unsigned int value);
-  std::string GetWord ();
+  std::string GetWord();
   unsigned int GetSize();
-
 };
 
 FibonacciWord::FibonacciWord(std::string word, unsigned int value) {
@@ -33,29 +32,38 @@ FibonacciWord::FibonacciWord(std::string word, unsigned int value) {
 	size_ = value;
 }
 
-FibonacciWord::SetWord(std::string word) {
+void FibonacciWord::SetWord(std::string word) {
 	word_ = word;
 }
 
-FibonacciWord::SetSize(unsigned int value) {
+void FibonacciWord::SetSize(unsigned int value) {
 	size_ = value;
 }
-
-void InsertWord(std::vector<FibonacciWord> holder, std::string word, unsigned int index){
-	holder[index].SetSize = word.size();
-	holder[index].SetWord = word;
+std::string FibonacciWord::GetWord() {
+	return word_;
+}
+unsigned int FibonacciWord::GetSize() {
+	return size_;
 }
 
-bool CheckFibonacci(std::string word, std::vector<FibonacciWord> seed) {
-	unsigned int counter ;
+bool unsigned int CheckFibonacci(std::string word, std::vector<FibonacciWord> seed,
+																															unsigned int counter) {
 	std::string first, second, tmp;
 	first = seed[0].GetWord;
 	second = seed[1].GetWord;
-	temp = first + second;
+	tmp = ;
 	do {
+		tmp = second;
+		second = first + second;
+		first = tmp;
+		counter ++;
+	} while (second.length() <= word.length());
 
-
-	} while ();
+	if (second == word){
+		return true;
+	} else {
+		return false;
+	}
 }
 
 void FillInHolder(std::vector<std::string> holder, std::ifstream file) {
@@ -78,60 +86,50 @@ void StartFibonacciHolder(std::vector<std::string> input_holder,
 }
 void WriteOutFile(std::vector<std::string> input_holder, std::ofstream output, 
 									std::vector<FibonacciWord> seed) {
+	unsigned int word_value;
 	for (unsigned int pointer = 0; pointer < input_holder.size(); pointer++) {
-		if (CheckFibonacci(input_holder[pointer], seed)) {
-			output << input_holder << ;
+		if (CheckFibonacci(input_holder[pointer], seed, word_value)) {
+			output << input_holder[pointer] << " is the word number " << word_value << "\n";
 		} else {
-
+			output << input_holder[pointer] << " is not a Fibonacci word. \n";
 		}
-		
-
-
-
-
+		word_value = 0;
+	}
+	output.close();
 }
 
 void PrintHelp() {
-	std::cout << "A Fibonacci word is a specific sequence of binary digits 
-	(or symbols from any two-letter alphabet). The Fibonacci word is formed by 
-	repeated concatenation in the same way that the Fibonacci numbers are formed by repeated 
-	addition."
-	<< std::endl;
-	std::cout << "F1 = a
-	,F2 = b
-	,F3 = ab
-	,F4 = bab
-	,F5 = abbab "<< std::endl;
+	std::cout << "A Fibonacci word is a specific sequence of binary digits";
+	std::cout << "(or symbols from any two-letter alphabet). The Fibonacci word is formed by";
+	std::cout << "repeated concatenation in the same way that the Fibonacci numbers are formed";
+	std::cout << " by repeated addition." << std::endl;
+	std::cout << "F1 = a, F2 = b, F3 = ab, F4 = bab, F5 = abbab "<< std::endl;
 	std::cout << "Use example: $> ./fibonacci_words input.txt output.txt" << std::endl;
 }
 
 int main(int argc, char** argv) {
-  if(argc == 2 && strcmp(argv[1], "--help")==0)
+  if (argc == 2 && strcmp(argv[1], "--help")==0)
 		PrintHelp();
-
+  if (argc != 3)
+		PrintHelp();
+	std::string f_input, f_output;
   std::vector<std::string> input_holder;
 	std::ifstream input;
 	std::vector<FibonacciWord> fibonacci_holder;
 	std::ofstream ouput;
-	
-	input.open("input.txt", std::ios::in);
-	if (input.fail()){
-		std::cout << "Cannot open file input.txt ... exiting program."  << std::endl;
+	input.open(f_input, std::ios::in);
+	if (input.fail()) {
+		std::cout << "Cannot open file "<< f_input <<" ... exiting program."  << std::endl;
 		exit(1);
 	}
-
 	FillInHolder(input_holder, input);
 	StartFibonacciHolder(input_holder, fibonacci_holder);
 	CheckFibonacci(input_holder);
-
-	ouput.open("output.txt",std::ios::out);
-
-	if (output.fail()){
-		std::cout << "Cannot open file output.txt ... exiting program."  << std::endl;
+	ouput.open(f_output,std::ios::out);
+	if (output.fail()) {
+		std::cout << "Cannot open file " << f_output << " ... exiting program."  << std::endl;
 		exit(1);
 	}
-	
-
-	
+	WriteOutFile(input_holder, f_output, fibonacci_holder);
   return 0;
 }
