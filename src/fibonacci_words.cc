@@ -2,7 +2,7 @@
  * @file fibonacci_words.cc
  * @author Miqueas (Sozhia) García González (sozhia.business@gmail.com)
  * @brief This program check from a document if a word is a Fibonacci word
- * @version 1.10.0
+ * @version 1.10.2
  * @date 2020-10-25
  * @web http://www.github.com/Sozhia
  * @copyright Copyright (c) 2020
