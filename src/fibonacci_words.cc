@@ -1,9 +1,9 @@
 /**
  * @file fibonacci_words.cc
  * @author Miqueas (Sozhia) García González (sozhia.business@gmail.com)
- * @brief This program check from a document if a word is an Fibonacci word
- * @version 0.1
- * @date 2020-10-22
+ * @brief This program check from a document if a word is a Fibonacci word
+ * @version 1.10.0
+ * @date 2020-10-25
  * @web http://www.github.com/Sozhia
  * @copyright Copyright (c) 2020
  * 
@@ -14,17 +14,40 @@
 #include <vector>
 #include <fstream>
 #include <string.h>
-
+ /**
+  * @brief Fibonacci word class
+  * 
+  */
 class FibonacciWord{
  private:
-  std::string word_;
-  unsigned int size_;
+  std::string word_; /// Word itself
+  unsigned int size_; /// Length of word 
  public:
-  FibonacciWord();
-  FibonacciWord(std::string, unsigned int);
+  FibonacciWord(); /// Default constructor
+  FibonacciWord(std::string, unsigned int); /// Constructor with parameters
+	/**
+	 * @brief Set `word` to an object
+	 * 
+	 * @param word  `word` content itself
+	 */
   void SetWord(std::string word);
+	/**
+	 * @brief Set the size of `word`
+	 * 
+	 * @param value length of `word`
+	 */
 	void SetSize(unsigned int value);
+	/**
+	 * @brief Get `word's` object
+	 * 
+	 * @return std::string content of `word's` object 
+	 */
   std::string GetWord();
+	/**
+	 * @brief Get length of `word's object`
+	 * 
+	 * @return unsigned int `word's` object length
+	 */
   unsigned int GetSize();
 };
 
@@ -51,6 +74,10 @@ std::string FibonacciWord::GetWord() {
 unsigned int FibonacciWord::GetSize() {
 	return size_;
 }
+/**
+ * @brief Prints helpfull use information about the program to the user
+ * 
+ */
 void PrintHelp() {
 	std::cout << "A Fibonacci word is a specific sequence of binary digits";
 	std::cout << "(or symbols from any two-letter alphabet). The Fibonacci word is formed by";
@@ -59,6 +86,15 @@ void PrintHelp() {
 	std::cout << "F1 = a, F2 = b, F3 = ab, F4 = bab, F5 = abbab "<< std::endl;
 	std::cout << "Use example: $> ./fibonacci_words input.txt output.txt" << std::endl;
 }
+/**
+ * @brief Check if a word is a Fibonacci word as the result of concating a seed 
+ * 
+ * @param word Word itself
+ * @param seed Fibonaccis Words generator itself
+ * @param counter Number of iterations to get content of word
+ * @return true If word is Fibonacci word
+ * @return false If word is not a Fibonacci word
+ */
 bool CheckFibonacci(std::string word, std::vector<FibonacciWord> seed, unsigned int &counter) {
 	std::string first, second, tmp;
 	first = seed[0].GetWord();
@@ -73,7 +109,6 @@ bool CheckFibonacci(std::string word, std::vector<FibonacciWord> seed, unsigned 
 	}
 	counter = 2;
 	do {
-
 		tmp = second;
 		second = first + second;
 		first = tmp;
@@ -85,7 +120,12 @@ bool CheckFibonacci(std::string word, std::vector<FibonacciWord> seed, unsigned 
 		return false;
 	}
 }
-
+/**
+ * @brief Load data from an input file and its dumped into a vector called holder
+ * 
+ * @param holder Vector with data
+ * @param finput File itself
+ */
 void LoadData(std::vector<std::string> &holder, std::string finput) {
 	std::ifstream input;
 	input.open(finput, std::ios::in);
@@ -104,6 +144,13 @@ void LoadData(std::vector<std::string> &holder, std::string finput) {
 	}
 	input.close();
 }
+/**
+ * @brief Writes checked as fibonacci data into an output file 
+ * 
+ * @param f_output File itself
+ * @param seed Fibonaccis Words generator
+ * @param input_holder Vector with info to checkout 
+ */
 void WriteData(std::string f_output, std::vector<FibonacciWord> seed, 
 															 std::vector<std::string> input_holder) {
 	std::ofstream output;
@@ -123,7 +170,14 @@ void WriteData(std::string f_output, std::vector<FibonacciWord> seed,
 	}
 	output.close();
 }
-
+/**
+ * @brief Fill a vector as Fibonaccis word seed container
+ * 
+ * @param input_holder Vector that contains info
+ * @param fibonacci_holder FibonacciWord objects container
+ * @param aux Vector position
+ * @param object Fibonacci Word object itself
+ */
 void FillFibonacciHolder(std::vector<std::string> input_holder, 
 									 std::vector<FibonacciWord> &fibonacci_holder,
 									 			unsigned int aux, FibonacciWord object) {
@@ -151,6 +205,7 @@ int main(int argc, char** argv) {
 	f_input = argv[1];
 	f_output = argv[2];
 	LoadData(input_holder,f_input);
+	/// Making seed with only 2 'words'
 	for (unsigned int auxiliar =0; auxiliar < 2; auxiliar ++) {
 		FibonacciWord object;
 		FillFibonacciHolder(input_holder, fibonacci_holder, auxiliar, object);
