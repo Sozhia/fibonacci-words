@@ -1,0 +1,299 @@
+\hypertarget{fibonacci__words_8cc}{}\doxysection{fibonacci\+\_\+words.\+cc File Reference}
+\label{fibonacci__words_8cc}\index{fibonacci\_words.cc@{fibonacci\_words.cc}}
+
+
+This program check from a document if a word is a Fibonacci word.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for fibonacci\+\_\+words.\+cc\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}}
+\begin{DoxyCompactList}\small\item\em Fibonacci word class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fibonacci__words_8cc_ae964ff8411b4fdcaf65cb5529aea4bef}{Print\+Help}} ()
+\begin{DoxyCompactList}\small\item\em Prints helpfull use information about the program to the user. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{fibonacci__words_8cc_a9cdc3f76b347f37f70c4cc65b709d8ae}{Check\+Fibonacci}} (std\+::string word, std\+::vector$<$ \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} $>$ seed, unsigned int \&counter)
+\begin{DoxyCompactList}\small\item\em Check if a word is a Fibonacci word as the result of concating a seed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fibonacci__words_8cc_a41331a0fe191cd06c706f7c69c44e4a0}{Load\+Data}} (std\+::vector$<$ std\+::string $>$ \&holder, std\+::string finput)
+\begin{DoxyCompactList}\small\item\em Load data from an input file and its dumped into a vector called holder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fibonacci__words_8cc_a1ee41ee2125dccd5cd3abf16f34e0dc8}{Write\+Data}} (std\+::string f\+\_\+output, std\+::vector$<$ \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} $>$ seed, std\+::vector$<$ std\+::string $>$ input\+\_\+holder)
+\begin{DoxyCompactList}\small\item\em Writes checked as fibonacci data into an output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fibonacci__words_8cc_a59c03b484bd892a9f05d2bbdcc5c1fea}{Fill\+Fibonacci\+Holder}} (std\+::vector$<$ std\+::string $>$ input\+\_\+holder, std\+::vector$<$ \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} $>$ \&fibonacci\+\_\+holder, unsigned int aux, \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} object)
+\begin{DoxyCompactList}\small\item\em Fill a vector as Fibonacci word seed container. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fibonacci__words_8cc_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program check from a document if a word is a Fibonacci word. 
+
+\begin{DoxyAuthor}{Author}
+Miqueas (Sozhia) García González (\href{mailto:sozhia.business@gmail.com}{\texttt{ sozhia.\+business@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+10.\+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020-\/10-\/25 @web \href{http://www.github.com/Sozhia}{\texttt{ http\+://www.\+github.\+com/\+Sozhia}} 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fibonacci__words_8cc_a9cdc3f76b347f37f70c4cc65b709d8ae}\label{fibonacci__words_8cc_a9cdc3f76b347f37f70c4cc65b709d8ae}} 
+\index{fibonacci\_words.cc@{fibonacci\_words.cc}!CheckFibonacci@{CheckFibonacci}}
+\index{CheckFibonacci@{CheckFibonacci}!fibonacci\_words.cc@{fibonacci\_words.cc}}
+\doxysubsubsection{\texorpdfstring{CheckFibonacci()}{CheckFibonacci()}}
+{\footnotesize\ttfamily bool Check\+Fibonacci (\begin{DoxyParamCaption}\item[{std\+::string}]{word,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} $>$}]{seed,  }\item[{unsigned int \&}]{counter }\end{DoxyParamCaption})}
+
+
+
+Check if a word is a Fibonacci word as the result of concating a seed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & Word itself \\
+\hline
+{\em seed} & Fibonacci Words generator itself \\
+\hline
+{\em counter} & Number of iterations to get content of word \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If word is Fibonacci word 
+
+false If word is not a Fibonacci word 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file fibonacci\+\_\+words.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98                                                                                           \{}
+\DoxyCodeLine{99     std::string first, second, tmp;}
+\DoxyCodeLine{100     first = seed[0].GetWord();}
+\DoxyCodeLine{101     second = seed[1].GetWord();}
+\DoxyCodeLine{102     \textcolor{keywordflow}{if} (first == word) \{}
+\DoxyCodeLine{103         counter = 1;}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} \textcolor{keyword}{true}; }
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} (second == word) \{}
+\DoxyCodeLine{107         counter = 2;}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} \textcolor{keyword}{true}; }
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     counter = 2;}
+\DoxyCodeLine{111     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{112         tmp = second;}
+\DoxyCodeLine{113         second = first + second;}
+\DoxyCodeLine{114         first = tmp;}
+\DoxyCodeLine{115         counter ++;}
+\DoxyCodeLine{116     \} \textcolor{keywordflow}{while} (second.length() < word.length());}
+\DoxyCodeLine{117     \textcolor{keywordflow}{if} (second == word)\{}
+\DoxyCodeLine{118         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{119     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{fibonacci__words_8cc_a59c03b484bd892a9f05d2bbdcc5c1fea}\label{fibonacci__words_8cc_a59c03b484bd892a9f05d2bbdcc5c1fea}} 
+\index{fibonacci\_words.cc@{fibonacci\_words.cc}!FillFibonacciHolder@{FillFibonacciHolder}}
+\index{FillFibonacciHolder@{FillFibonacciHolder}!fibonacci\_words.cc@{fibonacci\_words.cc}}
+\doxysubsubsection{\texorpdfstring{FillFibonacciHolder()}{FillFibonacciHolder()}}
+{\footnotesize\ttfamily void Fill\+Fibonacci\+Holder (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{input\+\_\+holder,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} $>$ \&}]{fibonacci\+\_\+holder,  }\item[{unsigned int}]{aux,  }\item[{\mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}}}]{object }\end{DoxyParamCaption})}
+
+
+
+Fill a vector as Fibonacci word seed container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+holder} & Vector that contains info \\
+\hline
+{\em fibonacci\+\_\+holder} & \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} objects container \\
+\hline
+{\em aux} & Vector position \\
+\hline
+{\em object} & Fibonacci Word object itself \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 181 of file fibonacci\+\_\+words.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{183                                                                                         \{}
+\DoxyCodeLine{184     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{185     std::string word;}
+\DoxyCodeLine{186     word = input\_holder[aux];}
+\DoxyCodeLine{187     size = word.length();}
+\DoxyCodeLine{188     \textcolor{keywordtype}{object}.SetSize(size);}
+\DoxyCodeLine{189     \textcolor{keywordtype}{object}.SetWord(word);}
+\DoxyCodeLine{190     fibonacci\_holder.push\_back(\textcolor{keywordtype}{object});}
+\DoxyCodeLine{191 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{fibonacci__words_8cc_a41331a0fe191cd06c706f7c69c44e4a0}\label{fibonacci__words_8cc_a41331a0fe191cd06c706f7c69c44e4a0}} 
+\index{fibonacci\_words.cc@{fibonacci\_words.cc}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!fibonacci\_words.cc@{fibonacci\_words.cc}}
+\doxysubsubsection{\texorpdfstring{LoadData()}{LoadData()}}
+{\footnotesize\ttfamily void Load\+Data (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{holder,  }\item[{std\+::string}]{finput }\end{DoxyParamCaption})}
+
+
+
+Load data from an input file and its dumped into a vector called holder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em holder} & Vector with data \\
+\hline
+{\em finput} & File itself \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file fibonacci\+\_\+words.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{129                                                               \{}
+\DoxyCodeLine{130     std::ifstream input;}
+\DoxyCodeLine{131     input.open(finput, std::ios::in);}
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} (input.fail()) \{}
+\DoxyCodeLine{133         std::cout << \textcolor{stringliteral}{"Cannot open file to load data ... exiting program."}  << std::endl;}
+\DoxyCodeLine{134         exit(1);}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{137     std::string foo;}
+\DoxyCodeLine{138     \textcolor{keywordflow}{while}(!input.eof()) \{}
+\DoxyCodeLine{139         getline(input, foo);}
+\DoxyCodeLine{140         \textcolor{keywordflow}{if} (!foo.empty() ) \{}
+\DoxyCodeLine{141             holder.push\_back(foo);}
+\DoxyCodeLine{142             counter ++;}
+\DoxyCodeLine{143         \}}
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145     input.close();}
+\DoxyCodeLine{146 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{fibonacci__words_8cc_a3c04138a5bfe5d72780bb7e82a18e627}\label{fibonacci__words_8cc_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{fibonacci\_words.cc@{fibonacci\_words.cc}!main@{main}}
+\index{main@{main}!fibonacci\_words.cc@{fibonacci\_words.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+Making seed with only 2 \textquotesingle{}words\textquotesingle{}
+
+Definition at line 193 of file fibonacci\+\_\+words.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{193                                 \{}
+\DoxyCodeLine{194     std::string f\_input, f\_output;}
+\DoxyCodeLine{195   std::vector<std::string> input\_holder;}
+\DoxyCodeLine{196     std::vector<FibonacciWord> fibonacci\_holder;}
+\DoxyCodeLine{197   \textcolor{keywordflow}{if} (argc == 2 \&\& strcmp(argv[1], \textcolor{stringliteral}{"-\/-\/help"})==0) \{}
+\DoxyCodeLine{198         \mbox{\hyperlink{fibonacci__words_8cc_ae964ff8411b4fdcaf65cb5529aea4bef}{PrintHelp}}();}
+\DoxyCodeLine{199         exit(1);}
+\DoxyCodeLine{200     \}}
+\DoxyCodeLine{201   \textcolor{keywordflow}{if} (argc != 3) \{}
+\DoxyCodeLine{202         \mbox{\hyperlink{fibonacci__words_8cc_ae964ff8411b4fdcaf65cb5529aea4bef}{PrintHelp}}();}
+\DoxyCodeLine{203         exit(1);}
+\DoxyCodeLine{204     \}}
+\DoxyCodeLine{205     f\_input = argv[1];}
+\DoxyCodeLine{206     f\_output = argv[2];}
+\DoxyCodeLine{207     \mbox{\hyperlink{fibonacci__words_8cc_a41331a0fe191cd06c706f7c69c44e4a0}{LoadData}}(input\_holder,f\_input);}
+\DoxyCodeLine{209     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} auxiliar =0; auxiliar < 2; auxiliar ++) \{}
+\DoxyCodeLine{210         \mbox{\hyperlink{classFibonacciWord}{FibonacciWord}} object;}
+\DoxyCodeLine{211         \mbox{\hyperlink{fibonacci__words_8cc_a59c03b484bd892a9f05d2bbdcc5c1fea}{FillFibonacciHolder}}(input\_holder, fibonacci\_holder, auxiliar, \textcolor{keywordtype}{object});}
+\DoxyCodeLine{212     \}}
+\DoxyCodeLine{213     \mbox{\hyperlink{fibonacci__words_8cc_a1ee41ee2125dccd5cd3abf16f34e0dc8}{WriteData}}(f\_output,fibonacci\_holder,input\_holder);}
+\DoxyCodeLine{214   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{215 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{fibonacci__words_8cc_ae964ff8411b4fdcaf65cb5529aea4bef}\label{fibonacci__words_8cc_ae964ff8411b4fdcaf65cb5529aea4bef}} 
+\index{fibonacci\_words.cc@{fibonacci\_words.cc}!PrintHelp@{PrintHelp}}
+\index{PrintHelp@{PrintHelp}!fibonacci\_words.cc@{fibonacci\_words.cc}}
+\doxysubsubsection{\texorpdfstring{PrintHelp()}{PrintHelp()}}
+{\footnotesize\ttfamily void Print\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints helpfull use information about the program to the user. 
+
+
+
+Definition at line 81 of file fibonacci\+\_\+words.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                  \{}
+\DoxyCodeLine{82     std::cout << \textcolor{stringliteral}{"A Fibonacci word is a specific sequence of binary digits"};}
+\DoxyCodeLine{83     std::cout << \textcolor{stringliteral}{"(or symbols from any two-\/letter alphabet). The Fibonacci word is formed by"};}
+\DoxyCodeLine{84     std::cout << \textcolor{stringliteral}{"repeated concatenation in the same way that the Fibonacci numbers are formed"};}
+\DoxyCodeLine{85     std::cout << \textcolor{stringliteral}{" by repeated addition."} << std::endl;}
+\DoxyCodeLine{86     std::cout << \textcolor{stringliteral}{"F1 = a, F2 = b, F3 = ab, F4 = bab, F5 = abbab "}<< std::endl;}
+\DoxyCodeLine{87     std::cout << \textcolor{stringliteral}{"Use example: \$> ./fibonacci\_words input.txt output.txt"} << std::endl;}
+\DoxyCodeLine{88 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{fibonacci__words_8cc_a1ee41ee2125dccd5cd3abf16f34e0dc8}\label{fibonacci__words_8cc_a1ee41ee2125dccd5cd3abf16f34e0dc8}} 
+\index{fibonacci\_words.cc@{fibonacci\_words.cc}!WriteData@{WriteData}}
+\index{WriteData@{WriteData}!fibonacci\_words.cc@{fibonacci\_words.cc}}
+\doxysubsubsection{\texorpdfstring{WriteData()}{WriteData()}}
+{\footnotesize\ttfamily void Write\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{f\+\_\+output,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFibonacciWord}{Fibonacci\+Word}} $>$}]{seed,  }\item[{std\+::vector$<$ std\+::string $>$}]{input\+\_\+holder }\end{DoxyParamCaption})}
+
+
+
+Writes checked as fibonacci data into an output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+\_\+output} & File itself \\
+\hline
+{\em seed} & Fibonacci Words generator \\
+\hline
+{\em input\+\_\+holder} & Vector with info to checkout \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file fibonacci\+\_\+words.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155                                                                                                 \{}
+\DoxyCodeLine{156     std::ofstream output;}
+\DoxyCodeLine{157     output.open(f\_output,std::ios::out);}
+\DoxyCodeLine{158     \textcolor{keywordflow}{if} (output.fail()) \{}
+\DoxyCodeLine{159         std::cout << \textcolor{stringliteral}{"Cannot open file to write data ... exiting program."}  << std::endl;}
+\DoxyCodeLine{160         exit(1);}
+\DoxyCodeLine{161     \}}
+\DoxyCodeLine{162     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} word\_value;}
+\DoxyCodeLine{163     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pointer = 0; pointer < input\_holder.size(); pointer++) \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} (\mbox{\hyperlink{fibonacci__words_8cc_a9cdc3f76b347f37f70c4cc65b709d8ae}{CheckFibonacci}}(input\_holder[pointer], seed, word\_value)) \{}
+\DoxyCodeLine{165             output << input\_holder[pointer] << \textcolor{stringliteral}{" is the word number "} << word\_value << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{166         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{167             output << input\_holder[pointer] << \textcolor{stringliteral}{" is not a Fibonacci word. \(\backslash\)n"};}
+\DoxyCodeLine{168         \}}
+\DoxyCodeLine{169         word\_value = 0;}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171     output.close();}
+\DoxyCodeLine{172 \}}
+
+\end{DoxyCode}
