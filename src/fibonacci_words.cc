@@ -90,7 +90,7 @@ void PrintHelp() {
  * @brief Check if a word is a Fibonacci word as the result of concating a seed 
  * 
  * @param word Word itself
- * @param seed Fibonaccis Words generator itself
+ * @param seed Fibonacci Words generator itself
  * @param counter Number of iterations to get content of word
  * @return true If word is Fibonacci word
  * @return false If word is not a Fibonacci word
@@ -148,7 +148,7 @@ void LoadData(std::vector<std::string> &holder, std::string finput) {
  * @brief Writes checked as fibonacci data into an output file 
  * 
  * @param f_output File itself
- * @param seed Fibonaccis Words generator
+ * @param seed Fibonacci Words generator
  * @param input_holder Vector with info to checkout 
  */
 void WriteData(std::string f_output, std::vector<FibonacciWord> seed, 
@@ -171,7 +171,7 @@ void WriteData(std::string f_output, std::vector<FibonacciWord> seed,
 	output.close();
 }
 /**
- * @brief Fill a vector as Fibonaccis word seed container
+ * @brief Fill a vector as Fibonacci word seed container
  * 
  * @param input_holder Vector that contains info
  * @param fibonacci_holder FibonacciWord objects container

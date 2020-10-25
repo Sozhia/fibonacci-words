@@ -41,7 +41,7 @@ bb is not a Fibonacci word
 bababbab is the word number 6
 ```
 ## 2.- Programming thougth process
-We are gonna use a `fibonacci-word.cc` file that contains our program (check ![Google Style](https://google.github.io/styleguide/cppguide.html), a `string vector` that cointains all data from the input file and a `seed vector` that contains our info to generate Fibonaccis words. The programm should check all data from the `string vector` and write the process into an ouput file where the program will write if a `word` is or not a `Fibonacci word` and how many iteratotions we needed to generate that world.
+We are gonna use a `fibonacci-word.cc` file that contains our program (check [Google Style](https://google.github.io/styleguide/cppguide.html), a `string vector` that cointains all data from the input file and a `seed vector` that contains our info to generate Fibonaccis words. The programm should check all data from the `string vector` and write the process into an ouput file where the program will write if a `word` is or not a `Fibonacci word` and how many iteratotions we needed to generate that world.
 
 
 
