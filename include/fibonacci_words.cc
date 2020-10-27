@@ -34,6 +34,7 @@ std::string FibonacciWord::GetWord() {
 unsigned int FibonacciWord::GetSize() {
 	return size_;
 }
+
 /**
  * @brief Prints helpfull use information about the program to the user
  * 
@@ -46,6 +47,7 @@ void PrintHelp() {
 	std::cout << "F1 = a, F2 = b, F3 = ab, F4 = bab, F5 = abbab "<< std::endl;
 	std::cout << "Use example: $> ./fibonacci_words input.txt output.txt" << std::endl;
 }
+
 /**
  * @brief Check if a word is a Fibonacci word as the result of concating a seed 
  * 
@@ -80,6 +82,7 @@ bool CheckFibonacci(std::string word, std::vector<FibonacciWord> seed, unsigned 
 		return false;
 	}
 }
+
 /**
  * @brief Load data from an input file and its dumped into a vector called holder
  * 
@@ -104,6 +107,7 @@ void LoadData(std::vector<std::string> &holder, std::string finput) {
 	}
 	input.close();
 }
+
 /**
  * @brief Writes checked as fibonacci data into an output file 
  * 
@@ -130,6 +134,7 @@ void WriteData(std::string f_output, std::vector<FibonacciWord> seed,
 	}
 	output.close();
 }
+
 /**
  * @brief Fill a vector as Fibonacci word seed container
  * 
@@ -148,28 +153,4 @@ void FillFibonacciHolder(std::vector<std::string> input_holder,
 	object.SetSize(size);
 	object.SetWord(word);
 	fibonacci_holder.push_back(object);
-}
-
-int main(int argc, char** argv) {
-	std::string f_input, f_output;
-  std::vector<std::string> input_holder;
-	std::vector<FibonacciWord> fibonacci_holder;
-  if (argc == 2 && strcmp(argv[1], "--help")==0) {
-		PrintHelp();
-		exit(1);
-	}
-  if (argc != 3) {
-		PrintHelp();
-		exit(1);
-	}
-	f_input = argv[1];
-	f_output = argv[2];
-	LoadData(input_holder,f_input);
-	/// Making seed with only 2 'words'
-	for (unsigned int auxiliar =0; auxiliar < 2; auxiliar ++) {
-		FibonacciWord object;
-		FillFibonacciHolder(input_holder, fibonacci_holder, auxiliar, object);
-	}
-	WriteData(f_output,fibonacci_holder,input_holder);
-  return 0;
 }
