@@ -14,6 +14,7 @@
 #include <vector>
 #include <fstream>
 #include <string.h>
+
  /**
   * @brief Fibonacci word class
   * 
