@@ -52,13 +52,6 @@ class FibonacciWord{
   unsigned int GetSize();
 };
 
-FibonacciWord::FibonacciWord();
-FibonacciWord::FibonacciWord(std::string word, unsigned int value); 
-void FibonacciWord::SetWord(std::string word);
-void FibonacciWord::SetSize(unsigned int value);
-std::string FibonacciWord::GetWord();
-unsigned int FibonacciWord::GetSize();
-
 /**
  * @brief Prints helpfull use information about the program to the user
  * 
